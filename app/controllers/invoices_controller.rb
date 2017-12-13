@@ -22,6 +22,4 @@ class InvoicesController < ApplicationController
       render_400
     end
   end
-
-
 end

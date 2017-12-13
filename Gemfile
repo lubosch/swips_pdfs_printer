@@ -29,7 +29,7 @@ gem 'annotate'
 
 gem 'pry'
 
-gem 'airbrake'
+# gem 'airbrake', '4.2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

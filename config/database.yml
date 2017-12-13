@@ -1,25 +1,42 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  pool: 5
+  reconnect: true
   timeout: 5000
+  username: <%= ENV['DB_DEVELOP_USER'] %>
+  password: <%= ENV['DB_DEVELOP_PASS'] %>
+  host: <%= ENV['DB_DEVELOP_HOST'] %>
+  port: <%= ENV['DB_DEVELOP_PORT'] %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: swips_pdfs_printer_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   <<: *default
-  database: db/test.sqlite3
+  database: swips_pdfs_printer_test<%= ENV['TEST_ENV_NUMBER'] %><%= ENV['JENKINS_ENV_NUMBER'] %>
 
-production:
+production: &production
   <<: *default
-  database: db/production.sqlite3
+  database: swips_pdfs_printer_production
+  host: <%= ENV['DB_PRODUCTION_HOST'] || 'localhost' %>
+  port: <%= ENV['DB_PRODUCTION_PORT'] || 5432 %>
+  username: <%= ENV['DB_PRODUCTION_USER'] %>
+  password: <%= ENV['DB_PRODUCTION_PASS'] %>
+
+migration:
+  <<: *production
+
+staging:
+  <<: *default
+  database: swips_pdfs_printer_staging
+  host: <%= ENV['DB_STAGING_HOST'] || 'localhost' %>
+  port: <%= ENV['DB_STAGING_PORT'] || 5432 %>
+  username: <%= ENV['DB_STAGING_USER'] %>
+  password: <%= ENV['DB_STAGING_PASS'] %>
+
+cucumber:
+  <<: *test

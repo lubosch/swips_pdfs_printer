@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
 
-set :application, 'online_chess'
-set :repo_url, '@github.com:lubosch/swips_pdfs_printer.git'
+set :application, 'swips_pdfs_printer'
+set :repo_url, 'git@github.com:lubosch/swips_pdfs_printer.git'
 
 
 set :use_sudo, false

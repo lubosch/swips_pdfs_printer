@@ -6,5 +6,10 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: <%= "#{ENV['REDIS_URL'].presence || 'redis://127.0.0.1:6379/0'}/socket" %>
   channel_prefix: swips_pdfs_printer_production
+
+staging:
+  adapter: redis
+  url: <%= "#{ENV['REDIS_URL'].presence || 'redis://127.0.0.1:6379/0'}/socket" %>
+  channel_prefix: swips_pdfs_printer_staging

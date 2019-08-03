@@ -4,10 +4,10 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{swips@52.174.94.70}
-role :web, %w{swips@52.174.94.70}
-role :db,  %w{swips@52.174.94.70}, :primary => true
-role :log, %w{swips@52.174.94.70}
+role :app, %w{swips@165.22.189.242}
+role :web, %w{swips@165.22.189.242}
+role :db,  %w{swips@165.22.189.242}, :primary => true
+role :log, %w{swips@165.22.189.242}
 
 set :branch, 'master'
 set :deploy_to, '/opt/swips_pdfs_printer'
@@ -30,5 +30,5 @@ set :rbenv_roles, :all # default value
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '52.174.94.70', user: 'swips', roles: %w{web app db log}#, my_property: :my_value
+server '165.22.189.242', user: 'swips', roles: %w{web app db log}#, my_property: :my_value
 

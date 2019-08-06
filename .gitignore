@@ -21,3 +21,5 @@
 .env
 spec/examples.txt
 dump.rdb
+
+.idea

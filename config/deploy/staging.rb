@@ -1,8 +1,8 @@
 # Simple Role Syntax
-role :app, %w{swips@40.115.61.51}
-role :web, %w{swips@40.115.61.51}
-role :db,  %w{swips@40.115.61.51}, :primary => true
-role :log, %w{swips@40.115.61.51}
+role :app, %w{swips@167.86.108.160}
+role :web, %w{swips@167.86.108.160}
+role :db,  %w{swips@167.86.108.160}, :primary => true
+role :log, %w{swips@167.86.108.160}
 
 
 set :branch, 'develop'
@@ -19,7 +19,7 @@ set :tmp_dir, '/tmp/swips_pdfs_printer_staging'
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '40.115.61.51', user: 'swips', roles: %w{web app db log}#, my_property: :my_value
+server '167.86.108.160', user: 'swips', roles: %w{web app db log}#, my_property: :my_value
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
